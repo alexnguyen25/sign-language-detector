@@ -60,8 +60,7 @@ pip install opencv-python mediapipe scikit-learn numpy
 
 ## Demo
 
-[![Watch the video](https://youtu.be/hATuQtdwcQ0/0.jpg)](https://youtu.be/hATuQtdwcQ0)
-
+[![Watch the video](https://img.youtu.com/vi/hATuQtdwcQ0/0.jpg)](https://www.youtube.com/watch?v=hATuQtdwcQ0)
 ## Future Improvements
 
 - Add support for words and phrases
@@ -72,6 +71,7 @@ pip install opencv-python mediapipe scikit-learn numpy
 ---
 
 **Note**: Developed as a computer vision and machine learning project to explore real-time gesture recognition.
+
 
 
 
