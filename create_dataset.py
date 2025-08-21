@@ -19,8 +19,8 @@ import cv2
 
 model = mp.solutions.hands.Hands(static_image_mode=True, min_detection_confidence=0.3) #model for getting landmarks
 DATA_DIR = '../sign-language-detector-python/data'
-data = [] #the coordinate pairs for each letter
-labels = [] #the letter class
+data = [] #The coordinate pairs for each letter
+labels = [] #The letter class
 
 for letter_path in os.listdir(DATA_DIR): # Iterate through class folders ('0', '1')
     for img_path in os.listdir(os.path.join(DATA_DIR, letter_path)): # Process each image in class
@@ -33,7 +33,7 @@ for letter_path in os.listdir(DATA_DIR): # Iterate through class folders ('0', '
             coord_set = []
 
 
-            for hand_landmarks in result.multi_hand_landmarks: #formality if there are multiple hands
+            for hand_landmarks in result.multi_hand_landmarks: #Goes through each landmark
                 for i in range(len(hand_landmarks.landmark)):
                     x = hand_landmarks.landmark[i].x
                     y = hand_landmarks.landmark[i].y
@@ -41,10 +41,10 @@ for letter_path in os.listdir(DATA_DIR): # Iterate through class folders ('0', '
                     coord_set.append(x)
                     coord_set.append(y)
 
-            data.append(coord_set) #storing the coord pairs into the data and then the letter class
+            data.append(coord_set) #Storing the coord pairs into the data and then the letter class
             labels.append(letter_path)
 
-f = open('data.pickle', 'wb') #dumping the data into pickle
+f = open('data.pickle', 'wb') #Dumping the data into pickle
 pickle.dump({'data': data, 'labels': labels}, f)
 f.close()
 
