@@ -1,19 +1,13 @@
 import os
 
 import cv2
-#Step by Step
-#1. check if the folder exists for data
-#2. setup camera and parameters
-#3. for loop for how many classes we want
-#4. start then add frames of camera to data
-#5. do this for each class
 
 #Checks and creates the data folder
 DATA_DIR = '../sign-language-detector-python/data'
 if not os.path.exists(DATA_DIR):
     os.makedirs(DATA_DIR)
 
-#initialize variables
+#Initialize variables
 cam = cv2.VideoCapture(0)
 numLetters = 29
 numPics = 200
@@ -24,11 +18,11 @@ labels_dict = {
 }
 label_count = 0
 
-for i in range(numLetters): #for each letter
-    if not os.path.exists(os.path.join(DATA_DIR, str(i))): #creates the path to each letter class
+for i in range(numLetters): #For each letter
+    if not os.path.exists(os.path.join(DATA_DIR, str(i))): #Creates the path to each letter class
         os.makedirs(os.path.join(DATA_DIR, str(i)))
     count = 0
-    while True: #ready screen before collecting data
+    while True: #Ready screen before collecting data
         ret, frame = cam.read()
         if not ret:  # Check if frame was captured successfully and logs and skips if not
             print("frame not read")
@@ -41,7 +35,7 @@ for i in range(numLetters): #for each letter
             break
 
 
-    while count < numPics: #takes pictures until parameter
+    while count < numPics: #Takes pictures until parameter
         ret, frame = cam.read()
         if not ret:  # Check if frame was captured successfully and logs and skips if not
             print("frame not read")
